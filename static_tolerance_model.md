@@ -1,1 +1,0 @@
-![](https://api.onedrive.com/v1.0/shares/s!AvL4cm0o7IUHh2WjGLBQRCU7e-Gu/root/content)
