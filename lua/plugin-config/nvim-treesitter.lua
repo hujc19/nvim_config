@@ -8,7 +8,7 @@ require("nvim-treesitter.install").prefer_git = true
 treesitter.setup({
   -- 安装 language parser
   -- :TSInstallInfo 命令查看支持的语言
-  ensure_installed = "all",
+  ensure_installed = maintained,
   --{ "c", "cpp", "vim", "lua", "cmake", "markdown", "markdown_inline", "php",all },
   sync_install = false,
   auto_install = true,
@@ -16,7 +16,7 @@ treesitter.setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
-    disable = function(lang, bufnr) -- Disable in large C++ buffers
+    disable = function(_, bufnr) -- Disable in large C++ buffers
       return vim.api.nvim_buf_line_count(bufnr) > 10000
     end,
   },

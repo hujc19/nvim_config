@@ -136,6 +136,8 @@ keymap("t", keys.terminal_to_normal, "<C-\\><C-n>")
 -- map("t", "<leader>l", [[ <C-\><C-N><C-w>l ]], opt)
 
 --------------------------------------------------------------------
+-- dashboard
+keymap("n", "<leader>a", ":Dashboard<CR>", opts_remap)
 -- 插件快捷键
 local pluginKeys = {}
 

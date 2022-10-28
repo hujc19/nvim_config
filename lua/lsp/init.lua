@@ -1,24 +1,24 @@
-local status, mason = pcall(require, "mason")
-if not status then
+local status_mason, mason = pcall(require, "mason")
+if not status_mason then
   vim.notify("没有找到 mason")
   return
 end
 
-local status, mason_config = pcall(require, "mason-lspconfig")
-if not status then
+local status_mason_lspconfig, _ = pcall(require, "mason-lspconfig")
+if not status_mason_lspconfig then
   vim.notify("没有找到 mason-lspconfig")
   return
 end
 
-local status, lspconfig = pcall(require, "lspconfig")
-if not status then
+local status_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not status_lspconfig then
   vim.notify("没有找到 lspconfig")
   return
 end
 
-local status, ui = pcall(require, "lsp.ui")
-if not status then
-  vim.notify("没有找到 ui")
+local status_ui, _ = pcall(require, "lsp.ui")
+if not status_ui then
+  vim.notify("没有找到 ui.lua")
   return
 end
 
@@ -38,10 +38,12 @@ mason.setup({
   ensure_installed = {
     "sumneko_lua",
     "clangd",
-    -- "jsonls",
-    -- "pyright",
-    -- "remark_ls",
+    "jsonls",
+    "pyright",
     "cmake",
+    "marksman",
+    "bashls",
+    "yamlls",
   },
 })
 
@@ -52,10 +54,12 @@ mason.setup({
 local servers = {
   sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
   clangd = require("lsp.config.clangd"),
-  -- jsonls = require("lsp.config.jsonls"),
-  -- pyright = require("lsp.config.pyright"),
-  -- -- remark_ls = require("lsp.config.markdown"),
+  jsonls = require("lsp.config.json"),
+  pyright = require("lsp.config.pyright"),
   cmake = require("lsp.config.cmake"),
+  marksman = require("lsp.config.markdown"),
+  bashls = require("lsp.config.bash"),
+  yamlls = require("lsp.config.yamlls"),
 }
 
 for name, config in pairs(servers) do

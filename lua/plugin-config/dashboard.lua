@@ -21,41 +21,46 @@ db.custom_center = {
     desc = "Recently files                      ",
     action = "Telescope oldfiles",
   },
-  {
-    icon = "  ",
-    desc = "Edit keybindings                    ",
-    action = "edit ~/.config/nvim/lua/keybindings.lua",
-  },
+  -- {
+  --   icon = "  ",
+  --   desc = "Edit keybindings                    ",
+  --   action = "edit ~/.config/nvim/lua/keybindings.lua",
+  -- },
   {
     icon = "  ",
     desc = "Edit Projects                       ",
     action = "edit ~/.local/share/nvim/project_nvim/project_history",
   },
-  -- {
-  --   icon = "  ",
-  --   desc = "Edit .bashrc                        ",
-  --   action = "edit ~/.bashrc",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Change colorscheme                  ",
-  --   action = "ChangeColorScheme",
-  -- },
+  {
+    icon = "  ",
+    desc = "Edit .zshrc                        ",
+    action = "edit ~/.zshrc",
+  },
+  {
+    icon = "  ",
+    desc = "Change colorscheme                  ",
+    action = "ChangeColorScheme",
+  },
   -- {
   --   icon = "  ",
   --   desc = "Edit init.lua                       ",
   --   action = "edit ~/.config/nvim/init.lua",
   -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find file                           ",
-  --   action = "Telescope find_files",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find text                           ",
-  --   action = "Telescopecope live_grep",
-  -- },
+  {
+    icon = "  ",
+    desc = "Find file                           ",
+    action = "Telescope find_files",
+  },
+  {
+    icon = "  ",
+    desc = "Edit dashboard                     ",
+    action = "edit ~/.config/nvim/lua/plugin-config/dashboard.lua",
+  },
+  {
+    icon = "  ",
+    desc = "Find text                           ",
+    action = "Telescope live_grep",
+  },
 }
 
 db.custom_header = {
