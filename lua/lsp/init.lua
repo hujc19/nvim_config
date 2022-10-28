@@ -16,6 +16,12 @@ if not status then
   return
 end
 
+local status, ui = pcall(require, "lsp.ui")
+if not status then
+  vim.notify("没有找到 ui")
+  return
+end
+
 mason.setup({
   ui = {
     icons = {
@@ -32,9 +38,9 @@ mason.setup({
   ensure_installed = {
     "sumneko_lua",
     "clangd",
-    "jsonls",
-    "pyright",
-    "remark_ls",
+    -- "jsonls",
+    -- "pyright",
+    -- "remark_ls",
     "cmake",
   },
 })
@@ -46,9 +52,9 @@ mason.setup({
 local servers = {
   sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
   clangd = require("lsp.config.clangd"),
-  jsonls = require("lsp.config.jsonls"),
-  pyright = require("lsp.config.pyright"),
-  remark_ls = require("lsp.config.markdown"),
+  -- jsonls = require("lsp.config.jsonls"),
+  -- pyright = require("lsp.config.pyright"),
+  -- -- remark_ls = require("lsp.config.markdown"),
   cmake = require("lsp.config.cmake"),
 }
 
@@ -61,5 +67,3 @@ for name, config in pairs(servers) do
     lspconfig[name].setup({})
   end
 end
-
-require("lsp.ui")

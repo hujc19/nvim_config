@@ -14,8 +14,8 @@ require("colorscheme")
 require("autocmds")
 
 -- 内置LSP
-require("lsp.setup")
+require("lsp")
 -- 自动补全
 require("cmp.setup")
 -- 格式化
-require("format.setup")
+require("format")
