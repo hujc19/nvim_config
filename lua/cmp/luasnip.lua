@@ -1,6 +1,6 @@
 local status_ok, ls = pcall(require, "luasnip")
 if not status_ok then
-    vim.notify("没有找到 luasnip")
+  vim.notify("没有找到 luasnip")
   return
 end
 

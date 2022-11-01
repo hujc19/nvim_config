@@ -85,7 +85,10 @@ packer.startup({
     use("jakewvincent/mkdnflow.nvim")
     -- sudo权限读取
     use("lambdalisue/suda.vim")
-
+    -- markdown
+    use("iamcco/markdown-preview.nvim")
+    -- 插件启动时间
+    -- use("lewis6991/impatient.nvim")
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")
@@ -142,7 +145,7 @@ packer.startup({
   -------------------- packer配置 --------------------
   config = {
     -- 锁定插件版本在snapshots目录
-    -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
+    snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
     -- 这里锁定插件版本在v1，不会继续更新插件
     -- snapshot = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots") .. "/v1",
     -- snapshot = "v1",

@@ -1,18 +1,18 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 -- https://github.com/onsails/lspkind-nvim
-local status, cmp = pcall(require, "cmp")
-if not status then
+local status_cmp, cmp = pcall(require, "cmp")
+if not status_cmp then
   return
 end
 
-local status, luasnip = pcall(require, "luasnip")
-if not status then
+local status_luasnip, luasnip = pcall(require, "luasnip")
+if not status_luasnip then
   return
 end
 
-local status, config = pcall(require, "uConfig")
-if not status then
+local status_uconfig, config = pcall(require, "uConfig")
+if not status_uconfig then
   return
 end
 
