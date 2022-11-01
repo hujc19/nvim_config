@@ -38,6 +38,7 @@ null_ls.setup({
     -- }),
     -- clang_format
     formatting.clang_format,
+    formatting.cmake_format,
     -- rustfmt
     -- rustup component add rustfmt
     -- formatting.rustfmt,

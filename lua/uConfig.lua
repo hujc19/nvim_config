@@ -79,7 +79,6 @@ local M = {
     format = "<leader>f",
 
     terminal_to_normal = "<Esc>",
-    -- TODO
 
     -- proxy
     -- im-select

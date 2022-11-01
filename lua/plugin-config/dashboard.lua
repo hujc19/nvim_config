@@ -36,16 +36,16 @@ db.custom_center = {
     desc = "Edit .zshrc                        ",
     action = "edit ~/.zshrc",
   },
-  {
-    icon = "  ",
-    desc = "Change colorscheme                  ",
-    action = "ChangeColorScheme",
-  },
   -- {
-  --   icon = "  ",
-  --   desc = "Edit init.lua                       ",
-  --   action = "edit ~/.config/nvim/init.lua",
+  --   icon = "  ",
+  --   desc = "Change colorscheme                  ",
+  --   action = "ChangeColorScheme",
   -- },
+  {
+    icon = "  ",
+    desc = "Edit init.lua                       ",
+    action = "edit ~/.config/nvim/init.lua",
+  },
   {
     icon = "  ",
     desc = "Find file                           ",

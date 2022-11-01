@@ -83,6 +83,8 @@ packer.startup({
     use("akinsho/toggleterm.nvim")
     -- markdown 管理
     use("jakewvincent/mkdnflow.nvim")
+    -- sudo权限读取
+    use("lambdalisue/suda.vim")
 
     ------------------- LSP ------------------------
     -- installer
@@ -139,6 +141,11 @@ packer.startup({
   end,
   -------------------- packer配置 --------------------
   config = {
+    -- 锁定插件版本在snapshots目录
+    -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
+    -- 这里锁定插件版本在v1，不会继续更新插件
+    -- snapshot = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots") .. "/v1",
+    -- snapshot = "v1",
     -- 并发数限制
     max_jobs = 16,
     -- 自定义源

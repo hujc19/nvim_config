@@ -11,7 +11,6 @@ local keys = uConfig.keys
 
 -- 本地变量
 local map = vim.api.nvim_set_keymap
-
 local opt = {
   noremap = true,
   silent = true,
@@ -27,15 +26,12 @@ local opts_remap = {
   silent = true,
 }
 
-local opts_expr = {
-  expr = true,
-  silent = true,
-}
+-- local opts_expr = {
+--   expr = true,
+--   silent = true,
+-- }
 
--- 命令行下 Ctrl+j/k  上一个下一个
-keymap("c", keys.c_next_item, "<C-n>", opts_remap)
-keymap("c", keys.c_prev_item, "<C-p>", opts_remap)
-
+----------------------------------- base
 -- save && quit
 keymap("n", keys.n_save, ":w<CR>")
 keymap("n", keys.n_quit, ":q<CR>")
@@ -43,22 +39,12 @@ keymap("n", keys.n_save_quit, ":wq<CR>")
 keymap("n", keys.n_save_all, ":wa<CR>")
 keymap("n", keys.n_save_all_quit, ":wqa<CR>")
 keymap("n", keys.n_force_quit, ":qa!<CR>")
-
--- insert 模式下jj 退出
-keymap("i", keys.i_esc, "<Esc>")
-
--- $跳到行尾不带空格 (交换$ 和 g_)
-keymap({ "v", "n" }, "$", "9")
-keymap({ "v", "n" }, "9", "$")
-
 -- 上下滚动浏览
 keymap({ "n", "v" }, keys.n_v_5j, "5j")
 keymap({ "n", "v" }, keys.n_v_5k, "5k")
-
--- ctrl u / ctrl + d  只移动9行，默认移动半屏
--- keymap({ "n", "v" }, keys.n_v_10j, "10j")
--- keymap({ "n", "v" }, keys.n_v_10k, "10k")
-
+-- 9跳到行尾,0跳到行首
+keymap({ "v", "n" }, "$", "9")
+keymap({ "v", "n" }, "9", "$")
 -- magic search
 if uConfig.enable_magic_search then
   keymap({ "n", "v" }, "/", "/\\v", {
@@ -72,26 +58,17 @@ else
   })
 end
 
--------------------- fix ------------------------------
+-- 命令行下 Ctrl+j/k  上一个下一个
+keymap("c", keys.c_next_item, "<C-n>", opts_remap)
+keymap("c", keys.c_prev_item, "<C-p>", opts_remap)
+-- ctrl u / ctrl + d  只移动9行，默认移动半屏
+-- keymap({ "n", "v" }, keys.n_v_10j, "10j")
+-- keymap({ "n", "v" }, keys.n_v_10k, "10k")
 
--- fix :set wrap
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", opts_expr)
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", opts_expr)
+-- insert 模式下jj 退出
+keymap("i", keys.i_esc, "<Esc>")
 
--- visual模式下缩进代码
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
-
--- 上下移动选中文本
-keymap("x", "J", ":move '>+1<CR>gv-gv")
-keymap("x", "K", ":move '<-2<CR>gv-gv")
-
--- 在visual mode 里粘贴时不要复制
-keymap("x", "p", '"_dP')
-
-------------------------------------------------------------------
 -- s_windows 分屏快捷键
-------------------------------------------------------------------
 if keys.s_windows ~= nil and keys.s_windows.enable then
   local skey = keys.s_windows
   -- 取消 s 默认功能
@@ -115,6 +92,18 @@ if keys.s_windows ~= nil and keys.s_windows.enable then
   keymap("n", skey.size_equal, "<C-w>=")
 end
 
+-- fix :set wrap
+-- keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", opts_expr)
+-- keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", opts_expr)
+
+-- 上下移动选中文本
+keymap("x", "J", ":move '>+1<CR>gv-gv")
+keymap("x", "K", ":move '<-2<CR>gv-gv")
+
+-- 在visual mode 里粘贴时不要复制
+keymap("x", "p", '"_dP')
+
+---------------------plugins---------------------------------------------
 -- treesitter 折叠
 keymap("n", keys.fold.open, ":foldopen<CR>")
 keymap("n", keys.fold.close, ":foldclose<CR>")
@@ -215,13 +204,13 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
--- typescript 快捷键
-pluginKeys.mapTsLSP = function(bufnr)
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  keymap("n", lsp.ts_organize, ":TSLspOrganize<CR>", bufopts)
-  keymap("n", lsp.ts_rename_file, ":TSLspRenameFile<CR>", bufopts)
-  keymap("n", lsp.ts_import_all, ":TSLspImportAll<CR>", bufopts)
-end
+-- -- typescript 快捷键
+-- pluginKeys.mapTsLSP = function(bufnr)
+--   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+--   keymap("n", lsp.ts_organize, ":TSLspOrganize<CR>", bufopts)
+--   keymap("n", lsp.ts_rename_file, ":TSLspRenameFile<CR>", bufopts)
+--   keymap("n", lsp.ts_import_all, ":TSLspImportAll<CR>", bufopts)
+-- end
 
 -- nvim-dap
 pluginKeys.mapDAP = function()
@@ -278,8 +267,8 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
     opts.buffer = bufnr
     vim.keymap.set(mode, l, r, opts)
   end
-
   -- Navigation
+  -- 下一个hunk
   map_("n", "<leader>gj", function()
     if vim.wo.diff then
       return "]c"
@@ -291,7 +280,7 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
   end, {
     expr = true,
   })
-
+  -- 上一个hunk
   map_("n", "<leader>gk", function()
     if vim.wo.diff then
       return "[c"
@@ -304,17 +293,20 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
     expr = true,
   })
 
+  -- hunk 存入stage
   map_({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
   map_("n", "<leader>gS", gs.stage_buffer)
   map_("n", "<leader>gu", gs.undo_stage_hunk)
   map_({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
   map_("n", "<leader>gR", gs.reset_buffer)
+  -- 查看hunk修改详情
   map_("n", "<leader>gp", gs.preview_hunk)
   map_("n", "<leader>gb", function()
     gs.blame_line({
       full = true,
     })
   end)
+  -- 查看diff
   map_("n", "<leader>gd", gs.diffthis)
   map_("n", "<leader>gD", function()
     gs.diffthis("~")

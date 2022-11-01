@@ -49,5 +49,4 @@ zen.setup({
   -- callback where you can add custom code when the Zen window closes
   on_close = function() end,
 })
-
 keymap("n", uZen.toggle, ":ZenMode<CR>")
