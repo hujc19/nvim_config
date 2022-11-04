@@ -123,7 +123,10 @@ packer.startup({
     use("b0o/schemastore.nvim")
     -- Rust 增强
     use("simrat39/rust-tools.nvim")
-
+    -- nvim-dap
+    use("mfussenegger/nvim-dap")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("rcarriga/nvim-dap-ui")
     -------- 代码高亮 ----------------
     -- treesitter
     use({

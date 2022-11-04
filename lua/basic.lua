@@ -90,3 +90,50 @@ vim.o.showmode = false
 -- 配置vim与系统剪切板互通
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
+
+-- vim.opt.guifont = "JetBrainsMonoNL Nerd Font Mono Medium:h10"
+-- JetBrainsMonoNL Nerd Font Mono Medium
+
+vim.cmd([[
+if exists("g:neovide")
+" font
+" set guifont=JetBrainsMonoNL_Nerd_Font_Mono_Medium:h18
+" transparency
+let g:neovide_transparency = 1
+" scale
+let g:neovide_scale_factor = 1
+function! ChangeScaleFactor(delta)
+    let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+endfunction
+nnoremap <expr><C-=> ChangeScaleFactor(1.15)
+nnoremap <expr><C--> ChangeScaleFactor(1/1.15)
+
+let g:neovide_floating_blur_amount_x = 2.0
+let g:neovide_floating_blur_amount_y = 2.0
+let g:neovide_scroll_animation_length = 0.3
+let g:neovide_hide_mouse_when_typing = v:true
+let g:neovide_underline_automatic_scaling = v:true
+" functionality
+let g:neovide_refresh_rate = 60
+let g:neovide_refresh_rate_idle = 5
+let g:neovide_no_idle = v:true
+let g:neovide_confirm_quit = v:true
+let g:neovide_fullscreen = v:false
+let g:neovide_profiler = v:false
+let g:neovide_touch_deadzone = 6.0
+let g:neovide_touch_drag_timeout = 0.17
+
+let g:neovide_cursor_animation_length=0.04
+let g:neovide_cursor_trail_size = 0.5
+let g:neovide_cursor_antialiasing = v:true
+let g:neovide_cursor_unfocused_outline_width = 0.125
+let g:neovide_cursor_vfx_mode = "torpedo"
+
+
+
+
+endif
+" set guifont=JetBrainsMonoNL:h10
+
+ ]])
+vim.opt.guifont = { "FiraCode Nerd Font Mono", ":h10" }

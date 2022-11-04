@@ -1,3 +1,9 @@
+-- vim.cmd([[
+--
+-- " set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono\ Medium:h8
+-- set guifont=JetBrainsMonoNL\ NF:h10
+-- ]])
+
 require("utils.global")
 
 -- 基础设置
@@ -19,3 +25,5 @@ require("lsp")
 require("cmp.setup")
 -- 格式化
 require("format")
+-- DAP
+require("dap.nvim-dap")

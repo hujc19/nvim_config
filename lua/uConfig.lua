@@ -222,10 +222,6 @@ local M = {
     open_flow = "gp",
     goto_next = "gj",
     goto_prev = "gk",
-    -- typescript
-    ts_organize = "gs",
-    ts_rename_file = "gR",
-    ts_import_all = "gi",
   },
 }
 
