@@ -88,7 +88,11 @@ packer.startup({
     -- markdown
     use("iamcco/markdown-preview.nvim")
     -- 插件启动时间
-    -- use("lewis6991/impatient.nvim")
+    use("lewis6991/impatient.nvim")
+    -- neovim-cmake
+    use("hujc19/neovim-cmake")
+    -- use("Civitasv/cmake-tools.nvim")
+
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")
