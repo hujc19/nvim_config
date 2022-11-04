@@ -1,14 +1,11 @@
-local capabilities = require("lsp.common-config").capabilities
-capabilities.offsetEncoding = { "utf-16" }
+local common = require("lsp.common-config")
 local opts = {
-  capabilities = capabilities,
-  on_attach = function(_, bufnr)
-    local lspComm = require("lsp.common-config")
-    lspComm.keyAttach(bufnr)
-    -- lspComm.shwLinDiaAtom(bufnr)
-    -- lspComm.hlSymUdrCursor(client, bufnr)
+  capabilities = common.capabilities,
+  flags = common.flags,
+  on_attach = function(client, bufnr)
+    common.disableFormat(client)
+    common.keyAttach(bufnr)
   end,
-  handlers = require("lsp.common-config").handlers,
 }
 return {
   on_setup = function(server)

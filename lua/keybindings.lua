@@ -108,7 +108,7 @@ keymap("x", "p", '"_dP')
 keymap("n", keys.fold.open, ":foldopen<CR>")
 keymap("n", keys.fold.close, ":foldclose<CR>")
 
-keymap("n", keys.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
+keymap("n", keys.format, "<cmd>lua vim.lsp.buf.format()<CR>")
 
 -- Esc 回 Normal 模式
 keymap("t", keys.terminal_to_normal, "<C-\\><C-n>")
