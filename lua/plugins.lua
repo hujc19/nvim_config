@@ -40,6 +40,8 @@ packer.startup({
     use("sainnhe/sonokai")
     -- gruvbox
     use("ellisonleao/gruvbox.nvim")
+    -- catppuccin
+    use({ "catppuccin/nvim", as = "catppuccin" })
     -------------------- 通用插件 ------------------------
     -- 侧边文件浏览器
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -91,8 +93,9 @@ packer.startup({
     use("lewis6991/impatient.nvim")
     -- neovim-cmake
     use("hujc19/neovim-cmake")
-    -- use("Civitasv/cmake-tools.nvim")
-
+    -- navic
+    use({ "SmiteshP/nvim-navic", require = "nevim/nvim-lspconfig" })
+    use("jedrzejboczar/possession.nvim")
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")

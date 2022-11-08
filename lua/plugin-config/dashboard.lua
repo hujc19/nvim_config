@@ -16,10 +16,15 @@ db.custom_footer = {
 
 db.custom_center = {
   {
-    icon = "  ",
-    desc = "Projects                            ",
-    action = "Telescope projects",
+    icon = "  ",
+    desc = "Recently session                     ",
+    action = "Telescope possession list",
   },
+  -- {
+  --   icon = "  ",
+  --   desc = "Projects                            ",
+  --   action = "Telescope projects",
+  -- },
   {
     icon = "  ",
     desc = "Recently files                      ",
@@ -30,24 +35,19 @@ db.custom_center = {
     desc = "Edit keybindings                    ",
     action = "edit ~/.config/nvim/lua/keybindings.lua",
   },
-  {
-    icon = "侀 ",
-    desc = "Edit Projects                       ",
-    action = "edit ~/.local/share/nvim/project_nvim/project_history",
-  },
+  -- {
+  --   icon = "侀 ",
+  --   desc = "Edit Projects                       ",
+  --   action = "edit ~/.local/share/nvim/project_nvim/project_history",
+  -- },
   -- {
   --   icon = "  ",
   --   desc = "Edit .zshrc                        ",
   --   action = "edit ~/.zshrc",
   -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Change colorscheme                  ",
-  --   action = "ChangeColorScheme",
-  -- },
   {
     icon = "  ",
-    desc = "Edit init.lua                       ",
+    desc = "Edit init.lua                        ",
     action = "edit ~/.config/nvim/init.lua",
   },
   -- {
@@ -56,15 +56,10 @@ db.custom_center = {
   --   action = "Telescope find_files",
   -- },
   {
-    icon = "  ",
-    desc = "Edit dashboard                     ",
+    icon = "  ",
+    desc = "Edit dashboard                       ",
     action = "edit ~/.config/nvim/lua/plugin-config/dashboard.lua",
   },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find text                           ",
-  --   action = "Telescope live_grep",
-  -- },
 }
 
 db.custom_header = {
@@ -90,3 +85,12 @@ db.custom_header = {
   [[]],
   [[]],
 }
+db.confirm_key = "o"
+db.hide_tabline = false
+local home = "/home/sti"
+db.session_directory = home .. "/.config/nvim/session.vim"
+db.session_auto_save_on_exit = true
+db.session_verbose = true
+db.header_pad = 1
+db.center_pad = 1 -- number type default is 1
+db.footer_pad = 1 -- number type default is 1

@@ -90,9 +90,7 @@ vim.o.showmode = false
 -- 配置vim与系统剪切板互通
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
-
--- vim.opt.guifont = "JetBrainsMonoNL Nerd Font Mono Medium:h10"
--- JetBrainsMonoNL Nerd Font Mono Medium
+-- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 vim.cmd([[
 if exists("g:neovide")

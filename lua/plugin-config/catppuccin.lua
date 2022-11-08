@@ -34,6 +34,11 @@ require("catppuccin").setup({
     nvimtree = true,
     telescope = true,
     treesitter = true,
+    navic = {
+      enabled = true,
+      custom_bg = "NONE",
+    },
+
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })

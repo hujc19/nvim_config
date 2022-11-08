@@ -4,9 +4,14 @@ if not status then
   return
 end
 
+local navic = require("nvim-navic")
+local function session_name()
+  return require("possession.session").session_name or ""
+end
+
 lualine.setup({
   options = {
-    theme = "tokyonight",
+    theme = "auto",
     component_separators = { left = "|", right = "|" },
     -- https://github.com/ryanoasis/powerline-extra-symbols
     section_separators = { left = " ", right = "" },
@@ -15,14 +20,18 @@ lualine.setup({
   sections = {
     -- 注释掉，使用fidget
     -- lualine_c = {
-    --   "filename",
-    --   {
-    --     "lsp_progress",
-    --     spinner_symbols = { " ", " ", " ", " ", " ", " " },
-    --   },
+    --   { {
+    --     navic.get_location,
+    --     cond = true,
+    --   } },
     -- },
+    lualine_c = {
+      { "filetype" },
+      { navic.get_location, cond = navic.is_available, padding = { left = 0, right = 1 } },
+    },
     lualine_x = {
-      "filesize",
+      session_name,
+      -- "filename",
       {
         "fileformat",
         symbols = {
@@ -36,8 +45,7 @@ lualine.setup({
         --   mac = "CR",
         -- },
       },
-      "encoding",
-      "filetype",
+      -- "encoding",
     },
   },
 })
