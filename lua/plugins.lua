@@ -95,7 +95,10 @@ packer.startup({
     use("hujc19/neovim-cmake")
     -- navic
     use({ "SmiteshP/nvim-navic", require = "nevim/nvim-lspconfig" })
+    -- ssession manager
     use("jedrzejboczar/possession.nvim")
+    -- git
+    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")

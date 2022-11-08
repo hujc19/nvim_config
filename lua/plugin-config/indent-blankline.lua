@@ -31,7 +31,7 @@ indent_blankline.setup({
     "terminal",
     "help",
     "log",
-    "markdown",
+    -- "markdown",
     "TelescopePrompt",
     "lsp-installer",
     "lspinfo",
@@ -44,10 +44,10 @@ indent_blankline.setup({
   -- char = '│'
   -- char = "⎸",
   char = "▏",
-  --char_highlight_list = {
-  --  "IndentBlanklineIndent1",
-  --  "IndentBlanklineIndent2",
-  --},
+  -- char_highlight_list = {
+  --   "IndentBlanklineIndent1",
+  --   "IndentBlanklineIndent2",
+  -- },
   -- space_char_highlight_list = {
   --   "IndentBlanklineIndent1",
   --   "IndentBlanklineIndent2",
