@@ -1,5 +1,4 @@
 require("utils.global")
-
 -- 基础设置
 require("basic")
 -- 快捷键映射
