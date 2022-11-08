@@ -1,6 +1,3 @@
--- vim.cmd([[
---  set winbar+=%{%v:lua.require'nvim-navic'.get_location()%}
---  ]])
 require("utils.global")
 
 -- 基础设置
@@ -15,7 +12,6 @@ require("plugin-config")
 require("colorscheme")
 -- 自动命令
 require("autocmds")
-
 -- 内置LSP
 require("lsp")
 -- 自动补全
