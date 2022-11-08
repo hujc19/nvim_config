@@ -1,4 +1,5 @@
 local common = require("lsp.common-config")
+-- common.capabilities.offsetEncoding = { "utf-16" }
 local opts = {
   capabilities = common.capabilities,
   flags = common.flags,

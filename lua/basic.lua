@@ -90,9 +90,7 @@ vim.o.showmode = false
 -- 配置vim与系统剪切板互通
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
-
--- vim.opt.guifont = "JetBrainsMonoNL Nerd Font Mono Medium:h10"
--- JetBrainsMonoNL Nerd Font Mono Medium
+-- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 vim.cmd([[
 if exists("g:neovide")
@@ -118,7 +116,7 @@ let g:neovide_refresh_rate = 60
 let g:neovide_refresh_rate_idle = 5
 let g:neovide_no_idle = v:true
 let g:neovide_confirm_quit = v:true
-let g:neovide_fullscreen = v:false
+let g:neovide_fullscreen = v:true
 let g:neovide_profiler = v:false
 let g:neovide_touch_deadzone = 6.0
 let g:neovide_touch_drag_timeout = 0.17

@@ -156,6 +156,9 @@ local M = {
     -- 关闭窗口
     -- close = "<C-c>",
     close = "<Esc>",
+    n_close = "q",
+    -- open
+    open = "o",
     -- 预览窗口上下滚动
     preview_scrolling_up = "<C-u>",
     preview_scrolling_down = "<C-d>",

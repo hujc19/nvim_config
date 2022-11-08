@@ -1,9 +1,6 @@
 -- vim.cmd([[
---
--- " set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono\ Medium:h8
--- set guifont=JetBrainsMonoNL\ NF:h10
--- ]])
-
+--  set winbar+=%{%v:lua.require'nvim-navic'.get_location()%}
+--  ]])
 require("utils.global")
 
 -- 基础设置

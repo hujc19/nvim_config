@@ -28,6 +28,7 @@ M.setup = function()
     -- "winshift",
     -- "toggleterm",
     -- "nvim-spectre",
+    -- "possession",
   }
 
   local helper_set = {}
