@@ -1,3 +1,4 @@
+-- 全局设置
 require("utils.global")
 -- 基础设置
 require("basic")
