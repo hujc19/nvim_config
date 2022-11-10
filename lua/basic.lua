@@ -12,13 +12,11 @@ vim.o.scrolloff = 16
 vim.o.sidescrolloff = 16
 -- 使用相对行号
 vim.wo.number = true
--- vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 -- 高亮所在行
--- vim.wo.cursorline = true
+vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
--- 右侧参考线，超过表示代码太长了，考虑换行
--- vim.wo.colorcolumn = "80"
 -- 缩进2个空格等于一个Tab
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
@@ -37,8 +35,10 @@ vim.o.smartindent = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
 vim.o.smartcase = true
---TODO:spell
-vim.wo.spell = "en_us"
+-- spell
+vim.wo.spell = true
+vim.o.spelllang = "en_us,cjk"
+
 -- 搜索不要高亮
 vim.o.hlsearch = false
 -- 边输入边搜索
@@ -60,19 +60,18 @@ vim.o.mouse = "a"
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
--- smaller updatetime
+-- smaller update_time
 vim.o.updatetime = 300
--- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
--- 遇到问题详见：https://github.com/nshen/learn-neovim-lua/issues/1
+-- 设置等待键盘快捷键连击时间500毫秒，可根据需要设置
 vim.o.timeoutlen = 500
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+-- vim.g.completeopt = "menu,menuone,noselect,noinsert"
 -- 样式
-vim.o.termguicolors = true
-vim.opt.termguicolors = true
+-- vim.o.termguicolors = true
+-- vim.opt.termguicolors = true
 -- 是否显示不可见字符
 vim.o.list = false
 -- 不可见字符的显示，这里只把空格显示为一个点
@@ -91,7 +90,6 @@ vim.o.showmode = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
 -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-
 vim.cmd([[
 if exists("g:neovide")
 " font
@@ -126,7 +124,6 @@ let g:neovide_cursor_trail_size = 0.5
 let g:neovide_cursor_antialiasing = v:true
 let g:neovide_cursor_unfocused_outline_width = 0.125
 let g:neovide_cursor_vfx_mode = "torpedo"
-
 
 
 

@@ -12,7 +12,7 @@ require("plugin-config")
 require("colorscheme")
 -- 自动命令
 require("autocmds")
--- 内置LSP
+-- 内置 lsp
 require("lsp")
 -- 自动补全
 require("cmp.setup")
