@@ -15,15 +15,15 @@ local autocmd = vim.api.nvim_create_autocmd
 --  callback = require("utils.im-select").insertEnter,
 --})即可
 -- linux自动切换输入法尽快尽快
-autocmd({ "InsertLeave" }, {
-  pattern = { "*" },
-  callback = function()
-    local input_status = tonumber(vim.fn.system("fcitx-remote"))
-    if input_status == 2 then
-      vim.fn.system("fcitx-remote -c")
-    end
-  end,
-})
+-- autocmd({ "InsertLeave" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     local input_status = tonumber(vim.fn.system("fcitx-remote"))
+--     if input_status == 2 then
+--       vim.fn.system("fcitx-remote -c")
+--     end
+--   end,
+-- })
 
 -- 自动保存当前buffer
 autocmd({ "InsertLeave", "TextChanged" }, {

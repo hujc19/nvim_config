@@ -73,6 +73,7 @@ packer.startup({
     use("ethanholz/nvim-lastplace")
     -- 剪切板管理
     use("AckslD/nvim-neoclip.lua")
+    use({ "kkharji/sqlite.lua" })
     -- git图标
     use("lewis6991/gitsigns.nvim")
     -- zen模式
@@ -99,6 +100,9 @@ packer.startup({
     use("jedrzejboczar/possession.nvim")
     -- git
     use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+    -- fcitx
+    use("h-hg/fcitx.nvim")
+
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")
