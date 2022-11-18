@@ -100,9 +100,16 @@ packer.startup({
     use("jedrzejboczar/possession.nvim")
     -- git
     use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
-    -- fcitx
+    -- fcitx输入法切换
     use("h-hg/fcitx.nvim")
-
+    --scroll
+    use("petertriho/nvim-scrollbar")
+    -- Markdown code block compiler
+    use("jubnzv/mdeval.nvim")
+    use("simrat39/symbols-outline.nvim")
+    use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+    -- diffview
+    use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")

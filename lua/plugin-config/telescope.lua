@@ -35,7 +35,7 @@ telescope.setup({
       },
 
       n = {
-        [uTelescope.open] = "select_default",
+        [uTelescope.n_open] = "select_default",
         [uTelescope.n_close] = "close",
       },
     },

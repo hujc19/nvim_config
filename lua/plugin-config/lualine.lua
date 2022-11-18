@@ -26,13 +26,14 @@ lualine.setup({
     --   } },
     -- },
     lualine_c = {
-      { "filetype" },
+      { "filename" },
       { navic.get_location, cond = navic.is_available, padding = { left = 0, right = 1 } },
     },
     lualine_x = {
       session_name,
       -- "filename",
       {
+        -- "filename",
         "fileformat",
         symbols = {
           unix = "", -- e712

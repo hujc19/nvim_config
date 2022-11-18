@@ -33,7 +33,7 @@ db.custom_center = {
   {
     icon = "  ",
     desc = "Edit keybindings                     ",
-    action = "edit ~/.config/nvim/lua/keybindings.lua",
+    action = "edit ~/.config/nvim/lua/uConfig.lua",
   },
   -- {
   --   icon = "侀 ",
@@ -86,7 +86,7 @@ db.custom_header = {
   [[]],
 }
 db.confirm_key = "o"
-db.hide_tabline = false
+db.hide_tabline = true
 local home = "/home/sti"
 db.session_directory = home .. "/.config/nvim/session.vim"
 db.session_auto_save_on_exit = true
