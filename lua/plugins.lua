@@ -110,6 +110,8 @@ packer.startup({
     use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
     -- diffview
     use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+    -- ros-nvim
+    use("thibthib18/ros-nvim")
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")

@@ -10,7 +10,7 @@ local M = {
     c_prev_item = "<C-k>",
 
     -- normal 模式
-    n_save = "w", -- :w
+    n_save = "<C-s>", -- :w
     n_quit = "q", -- :q
     -- n_save_quit = "<leader>q", --:wq
     n_save_all = "<leader>w", -- :wa
