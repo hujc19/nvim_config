@@ -16,23 +16,24 @@ db.custom_footer = {
 
 db.custom_center = {
   {
-    icon = "  ",
-    desc = "Recently session                     ",
+    icon = "  ",
+    desc = "Recently Session                     ",
     action = "Telescope possession list",
   },
-  -- {
-  --   icon = "  ",
-  --   desc = "Projects                            ",
-  --   action = "Telescope projects",
-  -- },
   {
     icon = "  ",
-    desc = "Recently files                       ",
+    desc = "Recently Files                       ",
     action = "Telescope oldfiles",
   },
   {
+    -- icon = "  ",
+    icon = "  ",
+    desc = "Projects                             ",
+    action = "Telescope projects",
+  },
+  {
     icon = "  ",
-    desc = "Edit keybindings                     ",
+    desc = "Keybindings                          ",
     action = "edit ~/.config/nvim/lua/uConfig.lua",
   },
   -- {
@@ -45,19 +46,19 @@ db.custom_center = {
   --   desc = "Edit .zshrc                        ",
   --   action = "edit ~/.zshrc",
   -- },
-  {
-    icon = "  ",
-    desc = "Edit init.lua                        ",
-    action = "edit ~/.config/nvim/init.lua",
-  },
+  -- {
+  --   icon = "  ",
+  --   desc = "Edit init.lua                        ",
+  --   action = "edit ~/.config/nvim/init.lua",
+  -- },
   -- {
   --   icon = "  ",
   --   desc = "Find file                           ",
   --   action = "Telescope find_files",
   -- },
   {
-    icon = "  ",
-    desc = "Edit dashboard                       ",
+    icon = "ﯯ  ",
+    desc = "Dashboard                            ",
     action = "edit ~/.config/nvim/lua/plugin-config/dashboard.lua",
   },
 }
