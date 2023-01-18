@@ -91,6 +91,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
 -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 vim.cmd([[
+
+
 if exists("g:neovide")
 " font
 " set guifont=JetBrainsMonoNL_Nerd_Font_Mono_Medium:h18
