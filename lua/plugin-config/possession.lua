@@ -8,7 +8,6 @@ possession.setup({
 
   -- session_dir = (path_:new(vim.fn.stdpath("data")) / "possession"):absolute(),
   session_dir = "/home/sti/.config/nvim/session",
-  -- session_dir = "$HOME/.config/nvim/session",
   silent = false,
   load_silent = true,
   debug = false,

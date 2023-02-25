@@ -52,11 +52,11 @@ db.custom_center = {
   --   desc = "Edit init.lua                        ",
   --   action = "edit ~/.config/nvim/init.lua",
   -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find file                           ",
-  --   action = "Telescope find_files",
-  -- },
+  {
+    icon = "  ",
+    desc = "Find file                             ",
+    action = "Telescope live_grep",
+  },
   {
     icon = "ﯯ  ",
     desc = "Dashboard                            ",
