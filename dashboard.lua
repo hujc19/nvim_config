@@ -13,7 +13,6 @@ db.custom_footer = {
   "",
   "",
 }
-vim.notify("=============ok")
 
 db.custom_center = {
   {

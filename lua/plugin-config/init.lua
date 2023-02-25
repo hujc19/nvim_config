@@ -8,6 +8,7 @@ M.setup = function()
   -- plugins do not need to load, NOTE: no .lua suffix required
   local unload_plugins = {
     "init", -- we don't need to load init again
+    -- "dashboard",
     -- "vgit",
     -- "nvim-hlslens",
     -- "auto-session",

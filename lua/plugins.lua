@@ -44,7 +44,7 @@ packer.startup({
     use({ "catppuccin/nvim", as = "catppuccin" })
     -------------------- 通用插件 ------------------------
     -- 侧边文件浏览器
-    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    use({ "nvim-tree/nvim-tree.lua", requires = "nvim-tree/nvim-web-devicons", tag = "nightly" })
     -- 顶部标签页
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", "moll/vim-bbye" })
     -- 底部信息显示栏
@@ -109,9 +109,12 @@ packer.startup({
     use("simrat39/symbols-outline.nvim")
     use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
     -- diffview
-    use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+    -- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
     -- ros-nvim
     use("thibthib18/ros-nvim")
+    -- docker
+    -- use("jamestthompson3/nvim-remote-containers")
+    use({ "https://codeberg.org/esensar/nvim-dev-container" })
     ------------------- LSP ------------------------
     -- installer
     use("williamboman/mason.nvim")
