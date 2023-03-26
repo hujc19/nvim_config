@@ -18,7 +18,7 @@ local M = {
     -- n_force_quit = "Q", -- :qa!
 
     -- insert 模式
-    i_esc = "jj", -- <Esc>
+    i_esc = "jk", -- <Esc>
 
     n_v_5j = "<C-j>",
     n_v_5k = "<C-k>",
@@ -52,10 +52,10 @@ local M = {
       close_others = "so",
 
       -- 窗口跳转
-      jump_left = "<A-h>",
-      jump_right = "<A-l>",
-      jump_up = "<A-k>",
-      jump_down = "<A-j>",
+      jump_left = "<C-h>",
+      jump_right = "<C-l>",
+      -- jump_up = "<C-k>",
+      -- jump_down = "<C-j>",
 
       -- <leader> + hjkl 窗口之间跳转
       -- jump_left = "<leader>h",
@@ -113,10 +113,10 @@ local M = {
     cut = "x",
     copy = "c",
     paste = "p",
-    copy_name = "y",
-    copy_path = "Y",
-    copy_absolute_path = "gy",
-    toggle_file_info = "I",
+    copy_name = "cn",
+    copy_path = "cp",
+    copy_absolute_path = "cgp",
+    toggle_file_info = "gh",
     tabnew = "t",
     -- 进入下一级
     cd = "]",
@@ -128,8 +128,8 @@ local M = {
 
     enable = true,
 
-    prev = "<C-h>",
-    next = "<C-l>",
+    prev = "{",
+    next = "}",
     -- close = "<C-w>",
     close = "<leader>bc",
     close_left = "<leader>bh",
@@ -193,11 +193,11 @@ local M = {
     enable = true,
 
     -- <leader>ta 浮动命令行窗口
-    toggle_window_A = "<leader>ta",
+    toggle_window_A = "<leader>tf",
     -- <leader>tb 右侧命令行窗口
-    toggle_window_B = "<leader>tb",
+    toggle_window_B = "<leader>tr",
     -- <leader>tc 下方命令行窗口
-    toggle_window_C = "<leader>tc",
+    toggle_window_C = "<leader>td",
   },
 
   venn = {
