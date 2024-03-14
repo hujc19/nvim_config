@@ -1,200 +1,193 @@
 -- 自动安装packer
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-
-  local rtp_addition = vim.fn.stdpath("data") .. "/site/pack/*/start/*"
+  local rtp_addition = vim.fn.stdpath("data") .. "/lazy/*"
   if not string.find(vim.o.runtimepath, rtp_addition) then
     vim.o.runtimepath = rtp_addition .. "," .. vim.o.runtimepath
   end
-  vim.notify("Pakcer.nvim 安装完毕")
+  vim.notify("Lazy.nvim 安装完毕")
 end
+vim.opt.rtp:prepend(lazypath)
 
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
-  vim.notify("没有安装 packer.nvim")
+  vim.notify("没有安装 lazy.nvim")
   return
 end
 
-packer.startup({
-  function(use)
-    -- Packer 插件管理器
-    use("wbthomason/packer.nvim")
+require("lazy").setup({
 
     -------------------- 插件列表 -------------------------------------------------
-
     -------------------- colorschemes颜色主题 ------------
-    -- tokyonight
-    use("folke/tokyonight.nvim")
-    -- zephyr
-    use("glepnir/zephyr-nvim")
-    -- sonokai
-    use("sainnhe/sonokai")
-    -- gruvbox
-    use("ellisonleao/gruvbox.nvim")
-    -- catppuccin
-    use({ "catppuccin/nvim", as = "catppuccin" })
+    "folke/tokyonight.nvim",
+    "glepnir/zephyr-nvim",
+    "sainnhe/sonokai",
+    "ellisonleao/gruvbox.nvim",
+    {"catppuccin/nvim", name = "catppuccin"},
     -------------------- 通用插件 ------------------------
     -- 侧边文件浏览器
-    use({ "nvim-tree/nvim-tree.lua", requires = "nvim-tree/nvim-web-devicons", tag = "nightly" })
+    {"nvim-tree/nvim-tree.lua", dependencies = "nvim-tree/nvim-web-devicons", version = "nightly"},
     -- 顶部标签页
-    use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", "moll/vim-bbye" })
+    {"akinsho/bufferline.nvim", dependencies = {"nvim-tree/nvim-web-devicons", "moll/vim-bbye"}},
     -- 底部信息显示栏
-    use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
-    use("arkav/lualine-lsp-progress")
+    {"nvim-lualine/lualine.nvim", dependencies = "nvim-tree/nvim-web-devicons"},
+    "arkav/lualine-lsp-progress",
     -- 模糊查找
-    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
-    use("LinArcX/telescope-env.nvim")
-    use("nvim-telescope/telescope-ui-select.nvim")
+    { "nvim-telescope/telescope.nvim", dependencies = "nvim-lua/plenary.nvim" },
+    "LinArcX/telescope-env.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
     -- 启动页
-    use("glepnir/dashboard-nvim")
+    "glepnir/dashboard-nvim",
     -- 项目管理
-    use("ahmedkhalf/project.nvim")
+    "ahmedkhalf/project.nvim",
     -- 通知弹出
-    use("rcarriga/nvim-notify")
+    "rcarriga/nvim-notify",
     -- 缩进对齐线
-    use("lukas-reineke/indent-blankline.nvim")
+    "lukas-reineke/indent-blankline.nvim",
     -- 注释
-    use("numToStr/Comment.nvim") --代码注释
-    use("folke/todo-comments.nvim") --TODO注释
+    "numToStr/Comment.nvim",
+    --TODO注释
+    "folke/todo-comments.nvim",
     -- 自动补全括号
-    use("windwp/nvim-autopairs")
+    "windwp/nvim-autopairs",
     -- lsp进程UI
-    use("j-hui/fidget.nvim")
+    -- {"j-hui/fidget.nvim", version = "legacy"},
+    {
+        "j-hui/fidget.nvim",
+          tag = "legacy",
+            event = "LspAttach",
+              opts = {
+                    -- options
+                      },
+                     },
+
     -- 自动返回上次修改处
-    use("ethanholz/nvim-lastplace")
+    "ethanholz/nvim-lastplace",
     -- 剪切板管理
-    use("AckslD/nvim-neoclip.lua")
-    use({ "kkharji/sqlite.lua" })
+    "AckslD/nvim-neoclip.lua",
+    "kkharji/sqlite.lua",
     -- git图标
-    use("lewis6991/gitsigns.nvim")
+    "lewis6991/gitsigns.nvim",
     -- zen模式
-    use("folke/zen-mode.nvim")
+    "folke/zen-mode.nvim",
     -- venn画图
-    use("jbyuki/venn.nvim")
+    "jbyuki/venn.nvim",
     -- nvim-surround
-    use("kylechui/nvim-surround")
+    "kylechui/nvim-surround",
     -- toggleterm
-    use("akinsho/toggleterm.nvim")
+    "akinsho/toggleterm.nvim",
     -- markdown 管理
-    use("jakewvincent/mkdnflow.nvim")
+    "jakewvincent/mkdnflow.nvim",
     -- sudo权限读取
-    use("lambdalisue/suda.vim")
+    "lambdalisue/suda.vim",
     -- markdown
-    use("iamcco/markdown-preview.nvim")
-    -- 插件启动时间
-    use("lewis6991/impatient.nvim")
+    "iamcco/markdown-preview.nvim",
     -- neovim-cmake
-    use("hujc19/neovim-cmake")
+    "hujc19/neovim-cmake",
     -- navic
-    use({ "SmiteshP/nvim-navic", require = "nevim/nvim-lspconfig" })
+    {"SmiteshP/nvim-navic", require = "nevim/nvim-lspconfig"},
     -- ssession manager
-    use("jedrzejboczar/possession.nvim")
+    "jedrzejboczar/possession.nvim",
     -- git
-    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+    --{"TimUntersberger/neogit", dependencies  = "nvim-lua/plenary.nvim"},
+    {"kdheepak/lazygit.nvim", dependencies = "nvim-lua/plenary.nvim"},
+    -- bazel
+    --{"alexander-born/bazel.nvim", dependencies = {"nvim-treesitter/nvim-treesitter"} },
+    -- distant
+
+
     -- fcitx输入法切换
-    use("h-hg/fcitx.nvim")
+    "h-hg/fcitx.nvim",
     --scroll
-    use("petertriho/nvim-scrollbar")
+    "petertriho/nvim-scrollbar",
     -- Markdown code block compiler
-    use("jubnzv/mdeval.nvim")
-    use("simrat39/symbols-outline.nvim")
-    use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+    "jubnzv/mdeval.nvim",
+    "simrat39/symbols-outline.nvim",
+    { "CRAG666/code_runner.nvim", dependencies  = "nvim-lua/plenary.nvim" },
     -- diffview
     -- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
     -- ros-nvim
-    use("thibthib18/ros-nvim")
+    "thibthib18/ros-nvim",
     -- docker
-    -- use("jamestthompson3/nvim-remote-containers")
-    use({ "https://codeberg.org/esensar/nvim-dev-container" })
+    "jamestthompson3/nvim-remote-containers",
+    --use({ "https://codeberg.org/esensar/nvim-dev-container" })
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      init = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+      end,
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    },
+
     ------------------- LSP ------------------------
     -- installer
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     -- Lspconfig
-    use("neovim/nvim-lspconfig")
+    "neovim/nvim-lspconfig",
     -- 补全引擎
-    use("hrsh7th/nvim-cmp")
+    "hrsh7th/nvim-cmp",
     -- Snippet 引擎
-    use("L3MON4D3/LuaSnip")
-    use("saadparwaiz1/cmp_luasnip")
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
     -- 补全源
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- neovim内置lsp补全
-    use("hrsh7th/cmp-buffer") -- buffer补全
-    use("hrsh7th/cmp-path") -- 路径补全
-    use("hrsh7th/cmp-cmdline") -- 命令行补全
-    use("hrsh7th/cmp-nvim-lsp-signature-help") -- lsp签名补全
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/cmp-nvim-lsp", -- neovim内置lsp补全
+    "hrsh7th/cmp-buffer", -- buffer补全
+    "hrsh7th/cmp-path", -- 路径补全
+    "hrsh7th/cmp-cmdline", -- 命令行补全
+    "hrsh7th/cmp-nvim-lsp-signature-help", -- lsp签名补全
     -- 常见编程语言代码段
-    use("rafamadriz/friendly-snippets")
+    "rafamadriz/friendly-snippets",
     -- UI 增强
-    use("onsails/lspkind-nvim")
-    use("tami5/lspsaga.nvim")
+    "onsails/lspkind-nvim",
+    "tami5/lspsaga.nvim",
     -- 代码格式化
     -- use("mhartington/formatter.nvim")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    {"jose-elias-alvarez/null-ls.nvim", dependencies   = "nvim-lua/plenary.nvim" },
     -- TypeScript 增强
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+    {"jose-elias-alvarez/nvim-lsp-ts-utils", dependencies    = "nvim-lua/plenary.nvim" },
     -- Lua 增强
-    use("folke/neodev.nvim")
+    "folke/neodev.nvim",
     -- JSON 增强
-    use("b0o/schemastore.nvim")
+    "b0o/schemastore.nvim",
     -- Rust 增强
-    use("simrat39/rust-tools.nvim")
+    "simrat39/rust-tools.nvim",
     -- nvim-dap
-    use("mfussenegger/nvim-dap")
-    use("theHamsta/nvim-dap-virtual-text")
-    use("rcarriga/nvim-dap-ui")
+    "mfussenegger/nvim-dap",
+    "theHamsta/nvim-dap-virtual-text",
+    "rcarriga/nvim-dap-ui",
+
     -------- 代码高亮 ----------------
     -- treesitter
-    use({
-      "nvim-treesitter/nvim-treesitter",
-      requires = {
-        "p00f/nvim-ts-rainbow",
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        "windwp/nvim-ts-autotag",
-        "nvim-treesitter/nvim-treesitter-refactor",
-        "nvim-treesitter/nvim-treesitter-textobjects",
-      },
-    })
+    -- {
+      -- "nvim-treesitter/nvim-treesitter",
+      -- dependencies     = {
+        -- "p00f/nvim-ts-rainbow",
+        -- "JoosepAlviste/nvim-ts-context-commentstring",
+        -- "windwp/nvim-ts-autotag",
+       --  "nvim-treesitter/nvim-treesitter-refactor",
+        -- "nvim-treesitter/nvim-treesitter-textobjects",
+      -- },
+      -- build = ":TSUpdate",
+    -- }
 
-    --------------------------------------------------
-    if PACKER_BOOTSTRAP then
-      require("packer").sync()
-    end
-  end,
-  -------------------- packer配置 --------------------
-  config = {
-    -- 锁定插件版本在snapshots目录
-    snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
-    -- 这里锁定插件版本在v1，不会继续更新插件
-    -- snapshot = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots") .. "/v1",
-    -- snapshot = "v1",
-    -- 并发数限制
-    max_jobs = 16,
-    -- 自定义源
-    git = {
-      -- default_url_format = "https://hub.fastgit.xyz/%s",
-      -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
-      -- default_url_format = "https://gitcode.net/mirrors/%s",
-      -- default_url_format = "https://gitclone.com/github.com/%s",
-    },
-    -- 浮动窗口
-    display = {
-      open_fn = function()
-        return require("packer.util").float({ border = "single" })
-      end,
-    },
-  },
-})
+  })
+
 
 -------------------- 文件配置 --------------------
 -- 每次保存 plugins.lua 自动安装插件

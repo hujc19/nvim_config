@@ -20,8 +20,8 @@ local M = {
     -- insert 模式
     i_esc = "jk", -- <Esc>
 
-    n_v_5j = "<C-j>",
-    n_v_5k = "<C-k>",
+    n_v_5j = "<C-]>",
+    n_v_5k = "<C-[>",
 
     n_v_10k = "<C-u>",
     n_v_10j = "<C-d>",
@@ -54,8 +54,8 @@ local M = {
       -- 窗口跳转
       jump_left = "<C-h>",
       jump_right = "<C-l>",
-      -- jump_up = "<C-k>",
-      -- jump_down = "<C-j>",
+      jump_up = "<C-k>",
+      jump_down = "<C-j>",
 
       -- <leader> + hjkl 窗口之间跳转
       -- jump_left = "<leader>h",
@@ -113,9 +113,9 @@ local M = {
     cut = "x",
     copy = "c",
     paste = "p",
-    copy_name = "cn",
-    copy_path = "cp",
-    copy_absolute_path = "cgp",
+    copy_name = "yy",
+    -- copy_path = "py",
+    copy_absolute_path = "py",
     toggle_file_info = "gh",
     tabnew = "t",
     -- 进入下一级
@@ -128,8 +128,8 @@ local M = {
 
     enable = true,
 
-    prev = "{",
-    next = "}",
+    prev = "<C-w>",
+    next = "<C-e>",
     -- close = "<C-w>",
     close = "<leader>bc",
     close_left = "<leader>bh",
